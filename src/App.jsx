@@ -8,11 +8,13 @@ const Header = ({ course }) => {
   );
 };
 
-const Part = ({ part, exercises }) => {
+const Part = ({ name, exercises }) => {
   return (
-    <p>
-      {part} {exercises}
-    </p>
+    <div>
+      <p>
+        {name} {exercises}
+      </p>
+    </div>
   );
 };
 
@@ -20,7 +22,7 @@ const Content = ({ parts }) => {
   return (
     <div>
       {parts.map((part, index) => (
-        <Part key={index} part={part.name} exercises={part.exercises} />
+        <Part key={index} name={part.name} exercises={part.exercises} />
       ))}
     </div>
   );
@@ -29,7 +31,11 @@ const Content = ({ parts }) => {
 const Total = ({ parts }) => {
   const totalExercises = parts.reduce((sum, part) => sum + part.exercises, 0);
 
-  return <p>Number of exercises {totalExercises}</p>;
+  return (
+    <div>
+      <p>Number of exercises {totalExercises}</p>
+    </div>
+  );
 };
 
 const App = () => {
