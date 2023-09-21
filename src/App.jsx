@@ -1,5 +1,13 @@
 import React from "react";
 
+const Header = ({ course }) => {
+  return (
+    <div>
+      <h1>{course}</h1>
+    </div>
+  );
+};
+
 const Part = ({ part, exercises }) => {
   return (
     <p>
@@ -34,7 +42,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>{course}</h1>
+      <Header course={course} />
       <Content parts={parts} />
       <Total parts={parts} />
     </div>
